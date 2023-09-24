@@ -1,0 +1,174 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xffeae5e5),
+          title: Center(
+            child: Text(
+              "Aplikasi Streaming Donghua",
+              style: TextStyle(color: Color(0x6110031d)),
+            ),
+          ),
+        ),
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: ListTile(
+                leading: ClipOval(
+                  child: Image.network(
+                    daftarItem[index].imageUrl,
+                    width: 50.0, // Adjust the width and height as needed
+                    height: 50.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                title: Text(
+                  daftarItem[index].judul,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                subtitle: Text(
+                  daftarItem[index].deskripsi,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class DaftarInfo {
+  final String judul;
+  final String deskripsi;
+  final String imageUrl;
+
+  DaftarInfo(
+      {required this.judul, required this.deskripsi, required this.imageUrl});
+}
+
+List<DaftarInfo> daftarItem = [
+  DaftarInfo(
+    judul: "Throne Of Seal",
+    deskripsi:
+        'Action, Adventure. Enam ribu tahun yang lalu, Dewa Iblis muncul dan makhluk berubah menjadi iblis. Umat manusia menciptakan enam Kuil untuk melawan iblis. Long Haochen bergabung dengan Kuil Ksatria. Saat ia tumbuh, sebuah petualangan terungkap..',
+    imageUrl:
+        'https://i.pinimg.com/564x/dd/f4/dc/ddf4dcc403a55a37f629774fa86c8d21.jpg',
+  ),
+  DaftarInfo(
+    judul: "The Defective",
+    deskripsi:
+        'Action, Adenture, Sci-Fi. Di era Ephemeris baru, Star Alliance mendirikan sistem "Eden" untuk membebaskan orang dari rasa sakit dan masalah. Namun, 1% dari mereka di delapan galaksi besar masih tidak dapat mengakses "Taman Eden". Mereka diasingkan ke galaksi ke delapan dan direkusi menjadi "The Defective".',
+    imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRot95Un4vYIv7uSfeo928f344I2V1aizK4hYYemZeajdt8dn4i9t9tfR1Wv47k_bJCLlU&usqp=CAU',
+  ),
+  DaftarInfo(
+    judul: "Supreme God Emperor",
+    deskripsi: 'Martial Art, Reincarnation.',
+    imageUrl:
+        'https://i.pinimg.com/236x/48/42/1c/48421c305549301481e19adfe4560715.jpg',
+  ),
+  DaftarInfo(
+    judul: "Martial Master",
+    deskripsi: 'Action, Drama, Historical, Martial Arts',
+    imageUrl:
+        'https://i.pinimg.com/236x/d2/7a/95/d27a950ef62f4ed843ced22d51b06ec2.jpg',
+  ),
+  DaftarInfo(
+    judul: "Perfect World",
+    deskripsi:
+        'Adventure, Fantasy. Diadaptasi dari novel dengan judul yang sama. Pahlawan Shi Hao yang sangat brilian sepanjang hidupnya, menciptakan legenda tanpa akhir',
+    imageUrl:
+        'https://i.pinimg.com/564x/4f/5c/c2/4f5cc2f7235a3955ced541fe270482f8.jpg',
+  ),
+  DaftarInfo(
+    judul: "Apotheosis",
+    deskripsi:
+        'Action, Fantasy, Adventure, Historical, Martial Arts. Luo Zheng dahulunya adalah Tuan Muda dari keluarga besar yang sekarang menjadi budak karena penuruan keluarganya.',
+    imageUrl:
+        'https://i.pinimg.com/236x/db/d0/18/dbd01884588b6ee0ec567b7f5f6603b8.jpg',
+  ),
+  DaftarInfo(
+    judul: "Dubu Xiaoyao",
+    deskripsi: 'Fantasy, Isekai, Martial Arts.',
+    imageUrl:
+        'https://i.pinimg.com/474x/a4/3e/d6/a43ed66fe27be7ed04ad1596b9fc9a57.jpg',
+  ),
+  DaftarInfo(
+    judul: "Battle Trough The Heavens Seaason 5",
+    deskripsi: 'Action, Adventure, Fantasy.',
+    imageUrl:
+        'https://i.pinimg.com/236x/53/48/e5/5348e560feb5fd9df501a3be0bdf7d32.jpg',
+  ),
+  DaftarInfo(
+    judul: "Azure Legacy",
+    deskripsi:
+        'Meng Chuan menyaksikan ibunya terbunuh tepat di hadapannya. Oleh karena itu, dia berlatih dengan sangat keras berharap suatu saat nanti ia bisa membalas kematian ibunya.',
+    imageUrl:
+        'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFBgVFRUYGRgaGxsaGxobGhobGhobGBoZGxgdGhgbIS0kGyEqIRoZJTclKi4xNDQ0GyM6PzozPi0zNDEBCwsLEA8QHxISHTwrJCozMzUzMzQ1MzMzMzMzMzMzMzMzMzUzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM//AABEIAKgBLAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAIHAQj/xABCEAACAQIEAwYDBAgEBQUAAAABAhEAAwQSITEFQVEGImFxgZETMqFCscHRBxQjUnKS4fAVU2KCFjNDwtJUk6Ky8f/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/EACURAAICAwEAAgICAwEAAAAAAAABAhEDEiExBEETUSKRYaGxcf/aAAwDAQACEQMRAD8Agw2HZtlZo3gEx5xRdrCXAQQjmD+6TqNddK84be7rLmdM0HMhhgV28GG8g0+s4q0LRti46tlAU94spX5WZvttOp5HbauzLmyJtKNoaEYtW3TF2IR30+Ey/wCw/lUS4Jxyb2NHMBJy33AMiCHJgsGBkt8wACz05Vqls87rEa8mDEkOAZmPtbRuornjmyRVRgVeOEnbkRph+oNb/qvSvbODbNmNwnbTUCYObSdpMxygdKb27HSrYs0pXsqJ5ccY1q7FaWYqVsOYpm+F8IrW2kaVP5UHlg4xfRcM9JWxFfwx5CtcK7K0MCB15e9WFsPWLbHSuTB8LX+Un07cnzbjrXDSytFIkVolsDbap1r0drPOo9U0RbFRqKlUUrMSqtbVotb0gbPM1R3GitiKS8ax6WiQ2+Q5egkGPqI9axrAuIdoFt3BmchRuqiTG+3Mx99E4btXhrhy/ECN+6/dJ1ju8j99ck4rxf8AbnN4CPHl930pn2d7TYey7Nfs53LTbuALIBkaljERGviaSMrYzR2AtNQtpXmHclFY6ZlB9xNeMavFCNk4ea8NsUOpisa6a2v6MpGXEivA9RO814KZI2xu92BQj3CdqKGHneplsgUdoxD1i8Yc14bEUzCCtHtgUu9sfwWfqwJ1FaXeHIeVFPcQHT3oTEcQAouDl4BSr0ScR4IpmBFVDifBssnerhjOJsdBtSx7gO8b+ZA9a580JxaSjaOjDGE023TKDicE665WAkDY7nYeZoQYK4WCkMujGWDABVEsdtYHTwromJCMIJWJBI3zAbAjntQhtoBCwAMuw6MMxEfvCfpXLvNq9WdD+LjTrZUUS5w54LKrEDeVKneNNSDrpEz4UDlNXTitlfhsBEuVLEDvEglmbad5j+I7VWbwOYnLuSfc1SGzXUc2WEYukzpGEc01w7zvSjAPIB6608wtkHavTcqRyVYww9kGilworXDW4o1KhKbGSIEtRRFsRtW8VIq0NghCXgRBFatbU1ETW6MKWvsFmxTlUT2aLz1hNBSaC0gL4dSIKly1uEpthaNUWp0WsVKkVaDZqMVK2y1KBWRSWGgXEOEGY1TO2mPtG2O9DAHvf6TEDTfXptrTzj+JDKEmM4geZBK/QTXLMbhXKuXaSrHQnkAxgD0o/RkVLH/Ce43z+ZMkn+/DnRHC8C9y6lsXEWSAC+g12k+1a3lUSSNQ3uMrVtiUWUg6sI9oA+s1NcY7O9cKwr27Si7cDvHecfKSf3fCiilc5/RrxNmufBuXGZFW5kUnQMCm3+0NA5a101lq8ZE2DFKjdKLy1qUptgUBJZ11rfLFE5Kz4dCNJUgttkGY1oWPPSp3gULdBNMgOzRsXG1DXb5at3SoylOqNbArwNLcR4a04fDk0HetRVFL9A1+2Jnw5O9QvZpneFA3BTq2C0AugqB3jaiL7RS+69GkbZkGJ11NIscgznSnF1qU49nz6TECPKub5FJIpB36WXsxig65Tuv3VcMGsVyjgvEDZcEg6GD4iuqcGxtq4BkuKT0nX2obXEUfYei0SorFmjEWoNj0aFKzLRASsKUUwNEAoG9jVS6tsmMykgeR1o97iDQuAehNVvE4qwuI+Ke8yjKDy9zpzo+hS/ZYbWK7wU7kFh5CouG8RF13Tmp08R5elVS/2jAxAuSMsZYGsDxNMez123cuO4IBDHLykPB+hn3oNMxb1Fbqta2zIqZRStmPFWpFFYBWwFCzUYK9NZWrVjUc47aXimizyAI2U5u5HiJI8qr+M4PibjSArExmgkb/AHbGm3be+VuBDJGcQu+k6+Qj8KP4TxW0hK3CyEkd51ZVJ6KxEdaXJNx8KY436UnFdjcYSALRJIgEER69K8x3YDE2kW5cInop2ABJn612TDYpSJBBHUGR70q4z2hww/Zs+dudtBnboZC7etc/5JMr+NHGOFXLljHIoI7rbjYyP7HvX0DhnzordQD71xDFcMF3GotuQHKRmDKQDuCDqNjXcMLY+HbVAZCqBPlXTB8OeUadEoFehKxRUoFM5AoiKUJbxIcuAIymD7VPjruRC0xArnP+PuHdcxVHYsSAS3p0FaPQ0W21xBSzyRCtH3RRpEiRXO8RirUH4bEMdyZ18+tPeA8YuPktKM0AAsQdABuae6M4lhuKAJJAHU1oWA8aUdsuI/CsGNS2nUDzqPszxFruFW5cEFQQx65eY60dl4LT9GWIuk+FAXFofjfEAtoPbaCxGXxBPSiwpIB8KtGSQrTYI1oEatFKOIsLaljJAiIG8kD03pnikPSlWPtt8K5pPdEfzrU5Smm2nwrCEGqa7/oV4i5rQLgmif1mIzm2PEan1DT9K1xXE7YELdY7/KsDbpt1pn8lUZYGCNhW5gjxOn30r4jY7w7w+Uc/E0cmPQAfs2Y9WIFBYq8SZyjb8TUMmRSKwxJIXWsUh8KaYK4BEDbmpgirDgv0f2nAPxW18BTjD/o5tD/qv7CinKJGov0WcM7R3rei3Z/03PzP51e+zvFbuIBLBFjoDr9aTp2FRdrhb+IfiKtHBOEJYSF3O5n7qZzTXguteMZqK2IFbKlbnC5hBGlSsYU8TwVq4P2kCPtTBFUTinClFyLblx1P3V0T/hy3mku0dP6mik4datjuIoPU6n3O1bdLzoUczwnZm5c+W2xHWIHudKLbgiYUg3r62ydlBLuf9ijQeO1GdqO3IQNasXFL7G5oQOuTqfGqO1s3AbnxgznU5jJJ8Sd6fflvg1N8R0DDcfsW/lNy55RP8uamWD7XYRzlLm23S4hWD56ge9cz4VfNtpIB8f8A8qxm0LpDMq/34iq/jTIu0dJs3VYBlYMDsQQQfIipJqgYPCvbOazcZD0mVP5+s1YMHx4qQt9cp/fA0PmPy9qnLE/oyl+ywTXhrW24YAqQQdQQZB9a3iolEii9u+GqDbuhZm4oPQHMIM0I/ZlrjE/FdVLTAdwANJXIZWNOnM1cu0FtmtFQobqDsRB08Os+FK8FdlVbaRqOjAww9CCKjkurRbG/oWcP4P8ADF2yH7uVSDtqdGgcqBbscUP7O7cRTMhHNsGZgkKJMb76nptTpWuC6+W3mDBQGzADTefrTS8IFcrk0dBU7HB0uY9fmi3btyZMPGeQxnWd6vgFIezWK+K1x1QZAxXPzYrEEeBWKfkV1YrUekMlOXDYGvZrWvHNUsnQPxLFrbQs4ledc87R4pbpFy3bCqNCRAnzir3jMGbndcCOcGqL2i4ULVzJbLGR0P4VRUjR6V3ONNKtnB+09q2qo1vLAAzLGsdaqgQmdPvphivhWbaEoxcwdflPhFPaM0Pe2V9buFBRdWZYkawevvUOE4sbODRSFUwUyxEEEg1XMdxa7egrlSBEBo22pOz3C8XbmnWZ33oqPbJ2F8W4k11/AaAdBVo7N9oAyi3cPeGgJ5iq9c4Yja23UL4tqfE1C3DmWCrLPXMKarNZ0d7gPKlfHFPwLndIldPHvA+u1I8NxK4qgG4uYaan8aB4qbl0Au5JHJbmVSPzpZqWvB8bV9FVy3H2T5kqB99DXHQbugIP70/QRQ2LTIZ+Ep8Sxahv1xx8oRfJa5XFl90MBiE5Et/BbP3ma9+KP8t/oPpNKP1u4w1dvSB9wqPM377/AMxo0xXM6/guKAMqKs9YPyirNh8SCJrk/A7OJLgp/Y8a6jwW04UfFyz0H511yo5Ew/CY5HuG2JzDwp3aw3M0LZu212UA8zzPrRAxq1KTGQUiqKx3oL/EEMgESNxO3nQ749dpoUElxDsaVYnGIspcYFSO8DqD4Gp72KUq0NtvHKq7xTgxaDbuiG2D6a9AwBH0FQWGCltbLqb11oSYnB4V75zWk+HP2Rl08CsGtL3ZHC3LhGHutb7oIk51mdQQdfrQ+Mwty22W4rKYkbajqCNCK2wWYsADXcnwi4ojvcKv4Yzct5k5XLeq+vT1im2AxIIlSD/fMVasHeC2wHIIjntHrSLiljBqc6XltnmFOYHX90bU0ci+xGmMcNcBA1j7qzEsCCG26VX0xql4W4CvJyIDDYnLvTlUYj5kdfOG67H8zT8fRG6IMFjb1m4PhS6sdbZ5+IPLz95q78OxyXllZDD5lYQy+YPI8jsarvClQEhDLMDmJiQOQHQTE+dVrG4u7auZkdlYaaEgxzB8KlPHsaORJnS+IofhtAkwYG3qTyA3nwqo4DMisbghLjfERuQLDvehifWq3e7VY24MjXIGxyqq5p01IFOcJbX4DgHvFwfRVAXz5+9c88biul8c05B68OViWDDXrJ/GvOKpcay6WicxUqGk6E6aeIpPgbDvcAzMqj5oJE+FWHi65cM6ocrZDlPRoOU6a7xXmz5I9KrSPOxXC3s2SjQA2V1HQMDlHsv3VYGWN64VhO2fEcM8Jd+KuwS4PiQBsM3zaTG9WNe1nE7xAfDHI+X5UIVRIOYEnNPr6V0qSXDkcJXbOo14qiuVPxziNl0Nuw7L9tWkA6/LrpPQ+FXNOPBkVilxSQCUKNmUkaqY0JHhRT/QHEsJYVXOK4218a2SwAXMCekjSvLPGA8iHXwZGHsYiq/xTAO7EqC3PQGqQt+oXi+wXEgWSzWnS4W9CNfGq1xB7txiXkkdNQBTpuFXf8t/amvCMEEBLqZOkEcquuIVtFJwGF+JcRGYqrMATzHl48qixmFCOVVsw5EiJE/fT/iPD2FyURlE6GDvuIigcXhbrMV+C/e1VgpAVjuNRoD+XSs3Tv6Mqaf7Fi2GjNp5Tr7V5cFxjJB9BA9hV1xXCLbcNtXBayOhtl9ALh74S8Cx1JILET4VnFeAWRdsOjsli4pXuMSS+hSGaYDKTr1UdaG6Bq/SlphLh5R5mPvplheGJANy6qjoJY/QUNxXh2JtXXt95lU91xm7ynUHz/EGgGwN47q38tPYljDjhsBMlti3MmBM+pB+lVS7cE/a9wPwNOjw25zRz4Qa0/w5h/0z/LSNWHYRZxyX3Lf0rzN/oH8p/On36jc/y29qwYK5/ltQ1NsXrD3LqQFNkA7DvfnRtvHX9e/a0/i/8qTr+j/Ff+oTyh/v5e1T2+wuIB1vofR/u/rVL/wSr/I8tYy9p3rWv8X50QcXcAPet6eLfnSW12Qvje8hP+/8qrWPDK7L8QmNNmEmYyhTrOlAaqLhi8RdZlOa2DGkMw99daDvYu6SGzJ3DyZtZIB0mqjZt3LhKqx0EySY0IBgjzoPDo9y4bYYyCOZEg6yJGtJLweHp0axxP8AaZlPzJ31PJhAB9RI9BUtnFFxatkfM2byCgsPwHrVcwwuWw5+GTICj0nX6/Sp0xt17g+CmqIQSYgZiv8A41zV061VDXiXEjcuPaW3bYWwF+I5OaT3mA8Bmj0NLEw0/ujnIuuCfY0h4hwe5bDXGxCszks4AIgtJMamdfKlOJuG0VGctKh5UkABp7pBG4NdMZOjnkkvS5Pw22cpYA5jzvOdB118fpUL4ayjAFE1B1+I7HQjYExB8Zqnfr427/h3/wCleG6WIKBy4BA70iDE6RRlJ0ItbOi8KxGDYQ9l2KkrIbSAxiO9VrwN/BwItuNt2HpzrkvCscttYuZgx1IA2kka+oNPcNx+0PtNpr8v9avGmvSTXTqOEt4YHMttgdt9fvo65gbFycyAk79fWK59ge1uGHzM/wDKPzpzY7aYVRobn8o/OpyT+mzUh+3ZzC/5P/yP51j8Mw6/9I7D7Xp1pUO3WGH7/wDIOUePjUV3tnhLhgM87Rk/rU2pfY8aQ0Iwyf8ASb0P9aHxmNw7DK1piOk/1pe/HrEbuQfCgP8AiDC/vtzHy+BmuHMq8PSwJSfb/snXC8OLEnDQepY7jUAQ2hMAUp4nwMXLrut22gLEBTbLERoATm1qG7x3CZv+Y8DX5NOWtLsd2ktEvluHvFipg/a2rhls2uf6O3VRvV/2xfjMNkfItxHAMki3AzbRGbWKifCtvntf+3B++h7nEbfJwPX+lDvjU53F8prrxquUcuSV/YT+qz9tP5P60RYwxXUOgP8AAdPZqWJjk/fX3ozD8VtqytnQwQd94M1240vs4sjY7sdkrt1Q/wARE/0myxkbye8InWlF/COCyNkBDajIdDrynx38qt1nt3hsurw0REHL6aVU8fxlLtxrhZRPKeVWgk31HPJsg/w8Noch/wBh/OhxgMm2QjoVOnlrUwxinZhWjYkdRVHGIqcj04i8ENjP+xJzZBMTIJ0nqAaatxlGwP6o+b4iOrWmjugKZGsyCBmHtSY3Z1FR3bgAk6DqaRwiPtL7CePcT/WWR2tqrqgRjJOYgkzECN9taUNk+0q9QIPvpWXcUp+0PeofiBm03999qSa/QUyR3WdEWAAOYrTOv+Wvua3ew3IH2r3CYXO2UuqeLEKPc0NeGtkDXV/y19zXnxF/y19zXmJt5GK5lPiCCPcVDQNbPo8OK2mgEuVN8XKs866JCJG965Bgb1zXjGDy3G3zNp/APtR4mI9/Cuh4YyZNVvtRhjmLgSdx4jSRPUb0PoL9Ki7m02ZIJEQp2MEHKY2kDfxkailmOxNu45KdxjqU0DKcw7q5j3wBmIGg+gMvELmYZg3geR8iPwjSkWJumIzkjoD+FRYQ5cXdQlRejbRXyt9nMIB316cjyE01x+NyBBaZxKLmJbMTImCZ1I0k9SelV7gmAL3AWBA0AEEmWMbDUnU+1N8UyvfYqAEBZgAIAVZI0/lFGMTOTIMTiXYFWZiBpE8/Kg8ba+G5SQY5jrGtG4ezmdSdgDcbwC6j7vrSq+SzFjzJPvTPgPTARROGuMhzIxVuRG9Boh3re7iQg8axgzE38zBnMvETzO5k+9SYcfN1j8RSjB5mYsfSmuHQkx1BFBMDJbTd6PAD6iiMFiAdTQCWyD6p+dbYG2xRYFFWZ0O7nEVykFZYzDTt6ddPpQH61HOgsTh7kbHRtuU6/wB+tTYfCOwDKKEgxlY5wuOLLBO+nl1P9+ND4jEL3o2jKPQ6k/WhbWHurptOhrS7YYCdY5em/wCFc842deOVeA128CGEcjQpcSPAj769CS3096ie2QdOUfSk0SHc2zxwNP4SPUTUGIPe8lA9dz99b3TDif3n/A/jUJadTuSfrTRiRlKzZDNSkUKDFSq81RE7JlratUQ1MiVRCMIdAAIEd22fWCD9aZY3FWVAt29di0gg5jBaSaHvW/2aHrb+qXGH3EUsxjRd81U/T+lGrRk6GmIdMyIxZC4DIRBmdBMdeX1oK5gjqGgnqD/2sNK34xJt2LhEZQADpqMzwfcfSj7JzKG5kctj5dfvHOgBiBrJUxpR3CsHDqWWRIzAbkSD76UQcKC086d4bDZVzNp0HM1SkxfCHEWQHYD5d16wdRPjy9KCxmADCZo/LJJ61tcGldGia6BS6U3FWCpobOaccTXU0pCDxrhyKnwuuo75buzU3xMzQNhSdMTAmmGCeB4866WrdCLisZAQNKkXDq4KsJB/vTpUSNR1g1nwBzntb2YtoTcVyPAiT5ZgRpVLGHVTt710vtxc7h8/wNc2wlsvcC7TuTyA1Y+gBpEkBjbhqi3NwLAVWaRsGIKoT7sfQUow5lWbm7BB5DvP/wBlMOOcQUWxaSO8Q7RyEQgPpr60ugjIijvBYA/13NfoCP5aF9Ce/rWjqo+eFnoqmY9YX2qFbU+VE2sKAT4ae2lEuqxqQo6c/atVgbE2LeBC+9LksZm8Nyattmxab7APi2p/pUWOwaZSUULA2FGWN62ZPoqwUFo5CmlkhGDdCD+P3Us4S4Dhm2DKTz0BE6DU6V1rH/o2t4gi/hcUEtuAyqU+IsMARldXGnv51NSoZqyg32WXgCJkf7UciveFuotpMc/vNQYnCXPi3MOq57vxHtBV1zOM6Qp6SNzy3q9N2Vu4fBsmEFvE3WDW7tzMudIIDJaQ90HcGWzdBtDb0JqUziFwQfQ/d/4/Wh+H4zKSPskz5Hn7/n1rTFWrls5LqOjdHVlPswHShEbSNokf19qWc68L4MCk3brljq5iAzSNJkeWnePtpUXFMVmQmenh/fX1rOFcOvYk5bFt3Okx8qjlnc91Z8T1rztRwi5hStu4czESzD5cxgkKTvE7/dQaQYyd0hFZfWfGvGeM3hm+k0z7H8F/W8UtguUDh4cQYKIzrvuJAkdDyq09nuC2sFafiOPWAjFbNowS7gxmCnc5gcvKFZjpBCtIzk0I8F2Bx+JAuJZCIe8puMELZlUaLqw25gbil1/sJxJbps/qjlgM0rBQqNJFycvpM+FWb9IVvivw1xF64Fw7FQqWbjBLeYGA4hSxOneM78tqZfoU45ee7ew1y47oLYuIGYtlIZVIUk6A5hpMaedAm3ZyjF2HtO1u6rK6mGVgQwO+oPhB9ay3bJ1Wrn+mHiK3eJMqoAbKLbZhu7fNr5Z8vXTyin4bA3TqqN69374opN+AsIsyNxRK1Nb4dciSvnBB+grdLM1TVr0Fntm2SpPLVfUqSNPSgeJp31PVB9JptgkIzKemb+TX/wCual/ExonhK+xomYTbRbttLTEiJ1HnmH3mi04Nctao8qeo0PnrQHDsT8g6PP8AMIOvoK6Hwq0GGVhIqsIxaFZVrKXd8qT1A1r17dxjLBvaru3Z4qc1vvLzX7Q8utQ43AwO6crDlEe9NS+jFRS2RyPtWXLZjarHbs3Tyn0FErgLh3Ue1GzanN8ZhWZjANQJwl42rp74EDdV9qFe0s7CuXJJWdEYuga25LAetO8M8Cq3gb0uW9B6U5R9K6o/yTZLImmkNkxVNcLcquWDrTbDXaSSFsR9sn7hPj+Brl9zFEFgOYKnxEgx9K6f2sTNbb3rluKGVjUmELwWF+IM7fIrS/kozN7yB615bxUObh+Ykt5FtB7AmPOghj3CNbDHKxBI5Ejahy1CzDR8XyXTx51qj+PrQCmt89GxQwYnLtUiY05hO2xHgaCReZqWyksB40djGJh8hbzMe+ldA7PriMLgybuIfC4dg9xoAN+4WAVbeHRxFvkS8as/hNLrnBcVbNvE2rRcqUfuoXC3EI7rpE7gHoQQQedPMPwvE8Qxa3sbba1h4zsjyFhQUVAG1I+ZyxH2z10kxxRhc2Aw36wMzYzFBhh1ALtatka3CNy7cvP+KpezPZni+HUYi0AjHVrbv37nOHQgglupIYTyqwdnO2TYnEXrS2AZZ2S4DAW2vdQXARI0yxE6sdNzTnsVi7owRv4pwzu1y65DBlRRAyrlJACqnyjbbeg2YP4Txu1jUa3dtZbiqHe1cUHusSoZQw1EgjqCINVbtX2SwOVmtLat3V1ZFvi2YGohCGWfDKJ60q/SGly2mExCs9u663s2VijqLjfEKGIiPiEHxpV2M41jRdaxhyrfFbO7upfIZAa5mkEmBsTBMUKY8edLPwbtNxW4gt2sGrRp8RkNpf4mGYKf9u/TlTb/AISRpxnFbq3nRcxX5cPaUAmAsAuB479Jpfj7jY7GXLdq7eNrCWj8RUuFPi3iWyoQkRqrSR+7Ag61QuzmGv4jEpbW3cdS4+IjF8gtlhnzye7oR4yBGtKrL6qSu0hr2Mxvx+MWrgVUQtdKooyqqCzcAGXkYifGrhx1beJxr3L7quF4cqk5vla/cAck9cq5ABG7aTqKrHCOHpgONrad4QBvhsxGouoQgY7A/MviR40bwfszexHFL+KuMUw63mMsFJulGIUIHBAURBfeCQu5IdkcjV8HuJ4NhMdZOKxl2+LT6p8W4LSIuyuqDurmJLDNJhgDG1U39FNgWuK4m1bdXVbdxFcQVZVvWwG00MjpVlxnam/ibjtw/wCHdTDErcw9xf8AnLOly20TMh1j/Sp1zRUvZ9rF3iJxWHsvaV8Ic5yBbbXPioYVlJUvCkN5DnNAmc97Ypm4ziTGiuD65F/E/SswyZriqdASB70R2pB/xDFOd2ceyoo/OgUvagjcfhXVi5ESQ5v8La2CwaY+6lgKO3e7rH7Q6+I50fiOMqyxzI1pM7DrTxk2qkGUUvA1rLI0kAxOvIggg/Q0p4kkL5N94qy8FxS3Itvv9k9fA1NxLs+HmCVmJ5iR+NTcP0a7EWH4Hn1ttAYA5WkjQgghh+NXvAWmWJ3oXh2DVAq9AAPQRTywgpJT/G6orGCkrGmBuGBTRVRvmAPmBSrDCilBFGTvwSu9DPg2h9kUNinQKYAqG7dNKeIYqFM1NSl9lNE/ALH39TSa5c1rzEYqTQRuVwSy9PQjhpC7AXYAp5hcRNVrDA8gTHQTR9i6dI57V6GDLyjl+Ri7ZZbd2mOGc78qrmFvGM0Eid+XvTa1fJjx28dY09Qa6uNWcTtMl40uZCOorlXFLcPrXU3xdt+4LiF9suYTPQdT4VWuKdlrlwyqsc2oGU6/wkb1JpSXBpxlBpSTX/qKIxFQl6ZY7gl5CItXDJIEI5kgSQsDWACfSl2Hwlx2KpbdmGpVVYsIMGVAncipeGMR6JRxW68GxAmcPf7uh/ZPpEgz3dNj7Gp/8KvrM4e8IAJm2+gIzA/L0BPkD0NFNGIyRW1qQQRoQZHmKjSiESaWw0dG7H9tMqFL6k5YAdAJjkCo5CmfbLtdhmwrCzczvcQ21ABDLmEMXDAZdCfWI51QeCLDxyIipOKYURI5VtV6YZfo+x9q1cvq7BGuKAhOgOXNKyeZkaVdbWFwVl2vFltFyc83WRGYnUlC+Qk8+7rrXI8XhWKP3WMzyPVaEwOH7skfShQaL12941hsVfsp8RntW1fM9uDLOw0DHQgBBqJ+at+FdrsHhEVLGFuAElmaVLMV2JYnvbHoBHpVNNjwr0W2MAAk8oBo1w1Mk4VxfE4W98e20OxLOCDkuZiWIdZ1BMnqNwRXQU/SmfhycGc8T/zO6SN9ckxMcjXPv1ZwMzBgu0kGOegn1+teOCAZVte6og7mdPE6HTwraoN2xzxDtY127+sYjCWHYABBlY5V1KzmYhjz1pbx7tVi8UjIWyIw1VRAI5DfbQ6eczSt7d1iZV+mx5Eae8VolsnaY2+8gff9aUzR1jsnxjDXMMlrCC3YvqgUqybMFEydDcUtqSDOxMGq32V49cwd/E4fGyjXHL7d1bpJLRA+V5Ug7aeNVFLLqoYBgQx1giCQI1pmlx7zqbwJdVlWIg5eQM7jXQ8vUzgUG9p71u7irly2ZVspnlmyKHjwkGkriKPdNaEvLVIyM4gjNWwNaMKickU+4tBNi7B00q6cC4yLsW7hGfZWOz+B8fvrnZva0bh7pO2sCT4AVlMCi34dQe16UThJ51VOC9oWgJfDQIAuRPSA43I1He3HOrNavjkQdJ0M6HYjwqje6pjuEodaaHNp6ka/FKTiooRuKKSQGkjQjnpU1jlGXvBo1ki3FXXrXf7GmJxlJcbiQZqO5iGbYE6x6mll92IJymNfDaZ+4+1W1IfkjF+g+LuUvN81vfcnXlQeauTL8WMnaO+PyZ4+SQVwriDWc8LOaOZEZSYj3NGWeLwEHwx3IjUawBOmWNY+vlWVlcMJOzpnFP0ITiIZCvw4nnm13B6DoNNtBRiXc6BNRCMk/wARcyPLN9Kysr0MXV04JfxkmjfAcOVLguSJA0UKIzbAyRMQeUGaaYnjdy2oKzKCAOUaTz11AOu1eVlUhBRXBfkfInmalNlHx3a25buIyzKFmHMS858wZu9JhhOxAiNZRcJ4/cw+IfEW1XO+aMy5gAzhjuZklQCZmC2smR7WVGXpJDa522vuroyqRcMsYIc/tC+jKRl0JXTwiNzMvbK78R7gtorXFCsFDougvyVyuChLX3clSCW13JnKylHQgRJPPf1o21aisrKwyGODBkGjMUZEVlZWQGa4rjd5QzdwmI1U7Ejx8aQYK+wIB20H4CsrKDDGck+DBpHlU2BxDowZYkaCZ/A1lZRoZ5JP02x3Ena2LZCmGLiBrJJJkzH2jymhm4jdOhiM+fTMIbUz80c9q8rKIhseLXcpXKkFg/29wwYbt1HtoIoaxinRSBGrB9ueo9tfSBEV5WUDBw4vcIY90FiAYzAbCNM0aZR9epqeximu3GdwoIQL3Vie8TJ6nXesrKAyNLq0HcSsrKZGYLcSgr5rKyiIxewM0wwTlSG6EHz6isrKwYycakje5jCNcpLDMAZ0728iNYorA9ontFsiGG1ILSAxYExptGYR/qrKyjGbT4GfyJ5YOMnxlhw3adHHylT4md63xHEbbQVWGG7SZ/vzrKyun8jfpzY4aP8Ag2uX6+3+yNOMlFKidTMgxG0HbwoZ+OaEZTrOubqSRy8vrXtZTKboSWCDdtA97jCm2qC2oIEFzvz2pZ+s1lZSykyrjpFL/vT/2Q==',
+  ),
+  DaftarInfo(
+    judul: "Demigod Realm",
+    deskripsi:
+        'Action, Fantasy. Tuan Muda dari Sekte Shenzhao, Xia Qiu diundang oleh kakanya, Xia Chun untuk kembali ke Tiongkok, tetapi secara tidak sengaja menemukan penelitian aneh di sebuah ruangan rahasia.',
+    imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaqHr0XOJ3a2k-JldYvrmFbGSnNnmIRs8mOMgZze4Q6A3uEKea_vSQ0muZM1eReuMbkBU&usqp=CAU',
+  ),
+];
+
+class DetailScreen extends StatelessWidget {
+  final DaftarInfo daftarInfo;
+
+  const DetailScreen({required this.daftarInfo});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(daftarInfo.judul),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.network(
+              daftarInfo.imageUrl,
+              width: 100.0,
+              height: 100.0,
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              daftarInfo.deskripsi,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void navigateToDetailPage(BuildContext context, DaftarInfo daftarInfo) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => DetailScreen(daftarInfo: daftarInfo),
+    ),
+  );
+}
